@@ -1,0 +1,95 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+ 
+ 
+ 
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+ 
+ <br/>
+<div class="container">
+  <div class="row">
+       <div class="col-lg-12">
+     <div class="button-group">
+        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></button>
+<ul class="dropdown-menu">
+ <li><a href="#" class="small" data-value="option1" tabIndex="-1"><input type="checkbox" name="check1" value="checkbox" onchange="showMe('div1')"/>&nbsp;Option 1</a></li>
+  <li><a href="#" class="small" data-value="option1" tabIndex="-1"><input type="checkbox" name="check1" value="checkbox" onchange="showMe('div2')"/>&nbsp;Option 1</a></li>
+  <li><a href="#" class="small" data-value="option1" tabIndex="-1"><input type="checkbox" name="check1" value="checkbox" onchange="showMe('div3')"/>&nbsp;Option 1</a></li>
+ 
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item glyphicon glyphicon-option-vertical" href="#">Hepsini Seç</a>
+		    <a class="dropdown-item glyphicon glyphicon-trash" href="#">Resetle</a>
+			    <a class="dropdown-item glyphicon glyphicon-ok" href="#">Uygula</a>
+	
+  </div>
+
+
+</ul>
+  </div>
+</div>
+  </div>
+</div>
+ 
+ 
+  
+<div id="div1" style="">icerik 1
+</div>
+
+<div id="div2" style="">icerik 2
+</div>
+
+<div id="div3" style="">icerik 3
+</div>
+
+
+   <script type="text/javascript">
+
+   function showMe (box) { /* onchange Showme*/
+ var chboxs = document.getElementById(box).style.display;  /* DİV */
+ 
+    var vis = "none";
+        if(chboxs=="block"){
+         vis = "none"; }
+        if(chboxs=="none"){
+         vis = "block"; }
+    document.getElementById(box).style.display = vis;
+}
+
+
+var options = [];
+
+$( '.dropdown-menu a' ).on( 'click', function( event ) {
+
+   var $target = $( event.currentTarget ),
+       val = $target.attr( 'data-value' ),
+       $inp = $target.find( 'input' ),
+       idx;
+
+   if ( ( idx = options.indexOf( val ) ) > -1 ) {
+      options.splice( idx, 1 );
+      setTimeout( function() { $inp.prop( 'checked', false ) }, 0);
+   } else {
+      options.push( val );
+      setTimeout( function() { $inp.prop( 'checked', true ) }, 0);
+   }
+
+   
+   
+   $( event.target ).blur();
+      
+   console.log( options );
+   return false;
+});
+
+
+
+
+</script>
+
+
